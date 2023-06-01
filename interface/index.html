@@ -1,0 +1,82 @@
+<html>
+
+<body>
+    <link rel="stylesheet" href="index.css">
+    <div class="background text-white">
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@massalabs/massa-web3@1.16.1/bundle.js"></script>
+        <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <div class="flex justify-center">
+            <h1 class="mt-5 text-2xl">
+                Trading bot views
+            </h1>
+        </div>
+
+        <div class="tabset">
+            <!-- Tab 1 -->
+            <input type="radio" name="tabset" id="tab1" aria-controls="simple" checked onclick="trigger()">
+            <label for="tab1">Simple bot</label>
+            <!-- Tab 2 -->
+            <input type="radio" name="tabset" id="tab2" aria-controls="rsi" onclick="trigger()">
+            <label for="tab2">RSI bot</label>
+
+            <div class="tab-panels">
+                <section id="simple" class="tab-panel">
+                    <div class="flex justify-center">
+                        <button class="bg-green-500 p-1 rounded-full m-2 p-2" onclick="startBot1()">Start Bot</button>
+                        <button class="bg-red-500 p-1 rounded-full m-2 p-2" onclick="stopBot1()">Stop Bot</button>
+                    </div>
+                    <div>
+                        <div id="chart"></div>
+                    </div>
+                </section>
+                <section id="rsi" class="tab-panel">
+                    <div class="flex justify-center">
+                        <button class="bg-green-500 p-1 rounded-full m-2 p-2" onclick="startBot2()">Start Bot</button>
+                        <button class="bg-red-500 p-1 rounded-full m-2 p-2" onclick="stopBot2()">Stop Bot</button>
+                    </div>
+                    <div>
+                        <div id="chart2"></div>
+                    </div>
+                </section>
+            </div>
+
+
+            <div class="flex justify-center">
+                <h1>
+                    Debug section
+                </h1>
+            </div>
+            <div class="flex justify-center">
+            <form class="mr-10" onsubmit="return false;" method="post" name="myForm">
+                <label for="amount">Amount:</label><br>
+                <input type="text" class="text-black pl-2" id="buy_amount" name="amount" value="0"><br>
+                <button class="bg-blue-500 p-1 rounded-full m-2" type="submit" onclick="buyWMAS()">Buy WMAS</button>
+            </form>
+
+            <form class="ml-10" onsubmit="return false;" method="post" name="myForm">
+                <label for="amount">Amount:</label><br>
+                <input type="text" class="text-black pl-2" id="sell_amount" name="amount" value="0"><br>
+                <button class="bg-blue-500 p-1 rounded-full m-2" type="submit" onclick="sellWMAS()">Sell WMAS</button>
+            </form>
+        </div>
+
+            <div class="flex justify-center">
+                <button class="bg-green-500 p-1 rounded-full m-2" onclick="startPriceVariation()">Start Price
+                    variation</button>
+                <button class="bg-red-500 p-1 rounded-full m-2" onclick="stopPriceVariation()">Stop Price
+                    variation</button>
+            </div>
+            <div class="flex justify-center">
+                <h2> Debug logs: </h2>
+            </div>
+            <nav class="pl-8">
+            <ul id="debug_events">
+            </ul>
+        </nav>
+        </div>
+        <script type="text/javascript" src="./web3.js"></script>
+</body>
+
+</html>

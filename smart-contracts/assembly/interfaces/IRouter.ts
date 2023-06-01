@@ -1,0 +1,65 @@
+import { Args, bytesToU64 } from "@massalabs/as-types";
+import { Address, call } from "@massalabs/massa-as-sdk";
+import { IERC20 } from "./IERC20";
+import { IPair } from "./IPair";
+
+class GetSwapInReturn {
+    constructor(public amountIn: u64 = 0, public feesIn: u64 = 0) {}
+}
+class GetSwapOutReturn {
+    constructor(public amountOut: u64 = 0, public feesIn: u64 = 0) {}
+}
+export class IRouter {
+    _origin: Address;
+
+    /**
+     * Wraps a smart contract exposing standard token FFI.
+     *
+     * @param {Address} at - Address of the smart contract.
+     */
+    constructor(at: Address) {
+        this._origin = at;
+    }
+
+    /**
+     * Swaps exact tokens for tokens while performing safety checks
+     *
+     * @param {u64} amountIn - The amount of tokens to send
+     * @param {u64} amountOutMin - The min amount of tokens to receive
+     * @param {Array<u64>} pairBinSteps - The bin step of the pairs (0: V1, other values will use V2)
+     * @param {IERC20[]} tokenPath - The swap path using the binSteps following `_pairBinSteps`
+     * @param {Address} to - The address of the recipient
+     * @param {u64} deadline - The deadline of the tx
+     */
+    swapExactTokensForTokens(
+        amountIn: u64,
+        amountOutMin: u64,
+        pairBinSteps: Array<u64>,
+        tokenPath: IERC20[],
+        to: Address,
+        deadline: u64,
+    ): u64 {
+        const args = new Args()
+            .add(amountIn)
+            .add(amountOutMin)
+            .addNativeTypeArray(pairBinSteps)
+            .addSerializableObjectArray(tokenPath)
+            .add(to)
+            .add(deadline);
+        const res = call(this._origin, "swapExactTokensForTokens", args, 0);
+        return bytesToU64(res);
+    }
+
+    getSwapIn(_pair: IPair, _amountOut: u64, _swapForY: bool): GetSwapInReturn {
+        const args = new Args().add(_pair._origin).add(_amountOut).add(_swapForY);
+        const result = new Args(call(this._origin, "getSwapIn", args, 0));
+        return new GetSwapInReturn(result.nextU64().unwrap(), result.nextU64().unwrap());
+    }
+
+    getSwapOut(_pair: IPair, _amountIn: u64, _swapForY: bool): GetSwapOutReturn {
+        const args = new Args().add(_pair._origin).add(_amountIn).add(_swapForY);
+        const result = new Args(call(this._origin, "getSwapOut", args, 0));
+        return new GetSwapOutReturn(result.nextU64().unwrap(), result.nextU64().unwrap());
+    }
+
+}
