@@ -6,9 +6,25 @@ This project has been developed during a live coding session with [BlueYard Capi
 
 ## Getting Started
 
-### Prerequisites
+### Deploy the smart contract
 
-- [Node.js](https://nodejs.org/en/) (>= 16.0.0)
-- in the smart-contract folder:
-    - run `npm install`
+In the `smart-contract` folder, rename the .env.example file to .env and fill in your secret key and your rpc url. 
+
+Then run the following commands:
+```bash
+npm install
+npm run deploy
+```
+
+Save the address of the deployed contract, you will need it later.
+
+### Run the web application
+
+Open the `interface` in your browser
+
+Then run the following commands:
+```bash
+
+
+
 
