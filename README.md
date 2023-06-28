@@ -16,14 +16,19 @@ npm install
 npm run deploy
 ```
 
-Save the address of the deployed contract, you will need it later.
+Save the address of the deployed contracts, you will need them later.
 
 ### Run the web application
 
-Open the `interface` in your browser
+edit the `web3.js` file :
+    
+    ```javascript
+    const bot1Address = "AS12....WUy9C" // replace with the address of your deployed contract
+    const bot2Address = "AS12...e6yoo" // replace with the address of your deployed contract
+    ```
 
-Then run the following commands:
-```bash
+Then you can open the `interface` in your browser
+
 
 
 
