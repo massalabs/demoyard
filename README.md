@@ -14,4 +14,6 @@ You will find the smart contract side under `smart-contracts/` where you can bui
 
 The interface is located in `interface/` and is linked to already deployed smart contracts on the buildnet.
 
+This project use the pools provided by Dusa you can visualize the one used on this project [here](https://trading.dusa.io/pools/AS12XdqMFYx1Ghd5LRzMq9hw81hVgBAYX9zqMJVZeVyM9nRn4C2pt/AS1dJ8mrm2cVSdZVZLXo43wRx5FxywZ9BmxiUmXCy7Tx72XNbit8/100)
+
 If you need any help on this example feel free to open an issue or ask on our discord.
