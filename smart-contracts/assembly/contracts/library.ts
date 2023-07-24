@@ -1,8 +1,6 @@
 import {
     Address,
     Context,
-    currentPeriod,
-    currentThread,
     generateEvent,
     sendMessage,
     Storage,
@@ -18,8 +16,8 @@ export const ONE_UNIT = 10 ** 9;
 
 export function callNextSlot(at: Address, function_name: string, gas: u64): void {
     // emit wakeup message
-    const cur_period = currentPeriod();
-    const cur_thread = currentThread();
+    const cur_period = Context.currentPeriod();
+    const cur_thread = Context.currentThread();
     let next_thread = cur_thread + 1;
     let next_period = cur_period;
     if (next_thread >= 32) {

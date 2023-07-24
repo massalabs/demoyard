@@ -1,14 +1,14 @@
 // create a base account for signing transactions
 const baseAccount = {
-    address: "AU1S1nYswWaHs3ySqnW9D9ZZYdbGH9NEXGQVQDZpUZ9ptJse56aW",
+    address: "AU139TmwoP6w5mgUQrpF9s49VXeFGXmN1SiuX5HEtzcGmuJAoXFa",
     secretKey: "S124xpCaad7hPhvezhHp2sSxb56Dpi2oufcp2m2NtkdPjgxFXNon",
     publicKey: "P1zir4oncNbkuQFkZyU4TjfNzR5BotZzf4hGVE4pCNwCb6Z2Kjn",
 };
 
-const bot1Address = "AS12SQQD4ztu3sw35km2EV4Cx4GCJJQqabrzAZfMi3N6eNBfWUy9C"
-const bot2Address = "AS128cj1yZu3wH7YNEPB35H8f5ev4FquizbfXiaKvhe2118Ze6yoo"
-const priceVariationAddress = "AS12mLNuMh4xr4fynEUK2aqsLNg2uKRBsbXaoxbiXwQPAYDFaWRfk"
-const debugAddress = "AS1vCSB3f1XsV1HyrK7FrpPADGvB9T78oPcDAzWvA45mYmYimr4s"
+const bot1Address = "AS1xS7YryYp3NxXqv9KZspi9BtZnLBTtQY5GBGcSkNWu9mY8a7jg"
+const bot2Address = "AS12MWD7ntspmLjmMZRkQpyEAcFWYHQJiiRxnMJLWv7Q6MYzDoXNz"
+const priceVariationAddress = "AS12D9AZMosi1FhPK4uHJVpAmWVLJXdNwhgvd83cvZ9fySQToXspG"
+const debugAddress = "AS1564cRXeWKCre87QxQmRB2oVD8qrJ15Xq3yheeFT4Vtqcoetnm"
 const USDCAddress = "AS1dJ8mrm2cVSdZVZLXo43wRx5FxywZ9BmxiUmXCy7Tx72XNbit8";
 const WMASAddress = "AS12XdqMFYx1Ghd5LRzMq9hw81hVgBAYX9zqMJVZeVyM9nRn4C2pt";
 const OneUnit = BigInt(10 ** 9);

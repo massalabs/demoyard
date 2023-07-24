@@ -4,12 +4,8 @@ import {
     Context,
     generateEvent,
     Storage,
-    currentPeriod,
-    currentThread,
-    sendMessage,
-    unsafeRandom,
 } from "@massalabs/massa-as-sdk";
-import { IERC20, IFactory, IRouter } from "../interfaces";
+import { IERC20, IRouter } from "../interfaces";
 import { ONE_UNIT, ROUTER, USDC, WMAS, buyWmas, callNextSlot, getWmasPrice, sellWmas } from "./library";
 
 export function constructor(_: StaticArray<u8>): void {
