@@ -10,9 +10,9 @@ dotenv.config();
 const publicApi = "http://149.202.84.7:33035";
 // const publicApi = DefaultProviderUrls.LOCALNET;
 
-const privKey = process.env.WALLET_PRIVATE_KEY;
+const privKey = process.env.WALLET_SECRET_KEY;
 if (!privKey) {
-    throw new Error("Missing WALLET_PRIVATE_KEY in .env file");
+    throw new Error("Missing WALLET_SECRET_KEY in .env file");
 }
 
 const deployerAccount = await WalletClient.getAccountFromSecretKey(privKey);
@@ -40,5 +40,6 @@ const __dirname = path.dirname(path.dirname(__filename));
         coins: BigInt(3) * MassaUnits.oneMassa,
     };
 
-    await deploySC(publicApi, deployerAccount, [bot], BigInt(0), BigInt(4_200_000_000), true);
+    /// In the brackets you can specify the SCs you want to deploy
+    await deploySC(publicApi, deployerAccount, [], BigInt(0), BigInt(4_200_000_000), true);
 })();

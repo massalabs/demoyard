@@ -42,7 +42,7 @@ export class IRouter {
         const args = new Args()
             .add(amountIn)
             .add(amountOutMin)
-            .addNativeTypeArray(pairBinSteps)
+            .add(pairBinSteps)
             .addSerializableObjectArray(tokenPath)
             .add(to)
             .add(deadline);
